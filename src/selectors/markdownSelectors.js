@@ -1,3 +1,3 @@
 export const getAllMarkdown = state => {
-  return [state.markdown];
+  return state.markdown;
 };
