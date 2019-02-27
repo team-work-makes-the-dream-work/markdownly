@@ -5,9 +5,9 @@ import Editor from '../../components/markdown/Editor';
 import Preview from '../../components/markdown/Preview';
 import styles from '../../components/markdown/Document.css';
 
-export default class AllMarkdown extends PureComponent {
+export default class MarkdownContainer extends PureComponent {
   state = {
-    markdown: '# Hi there',
+    markdown: '',
     unsubscribe: null
   };
 
@@ -33,8 +33,7 @@ export default class AllMarkdown extends PureComponent {
     return (
     <>
       <div className={styles.Document}>
-        <Editor markdown={this.state.markdown} updateMarkdown={this.updateMarkdown} />
-        <Preview markdown={this.state.markdown} />
+      
       </div>
     </>
     );

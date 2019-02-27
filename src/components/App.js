@@ -1,5 +1,5 @@
 import React from 'react';
-import MarkdownContainer from '../containers/markdown/Markdown';
+import MarkdownContainer from '../containers/markdown/MarkdownContainer';
 
 export default function App() {
   return (
