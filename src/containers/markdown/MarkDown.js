@@ -1,11 +1,11 @@
 import React, { PureComponent } from 'react';
-//import selector
+import { getAllMarkdown } from '../../selectors/markdownSelectors';
 import store from '../../store';
 import Editor from '../../components/markdown/Editor';
 import Preview from '../../components/markdown/Preview';
 import styles from '../../components/markdown/Document.css';
 
-export default class MarkDown extends PureComponent {
+export default class AllMarkdown extends PureComponent {
   state = {
     markdown: '# Hi there',
     unsubscribe: null
@@ -13,7 +13,7 @@ export default class MarkDown extends PureComponent {
 
   updateState = () => {
     const currentReduxState = store.getState();
-    //will get this from selectors
+    const markdown = getAllMarkdown(currentReduxState);
     this.setState({ markdown });
   };
   
