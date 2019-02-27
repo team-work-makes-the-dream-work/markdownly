@@ -31,7 +31,6 @@ export default class MarkdownContainer extends PureComponent {
   }
 
   handleChange = ({ target }) => {
-    console.log('target.value', target.value);
     store.dispatch(updateMarkdown(target.value));
   };
 
