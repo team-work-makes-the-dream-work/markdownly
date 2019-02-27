@@ -1,6 +1,6 @@
 import { markdown } from '../selectors/markdownSelectors';
 
-describe('markdown selectors', () => {
+describe.skip('markdown selectors', () => {
   it('selects only markdown', () => {
     const state = {
       markdown: 'Update mark down working'
