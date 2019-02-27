@@ -10,6 +10,7 @@ function Editor({ markdown, handleChange }) {
 
 Editor.propTypes = {
   markdown: PropTypes.string.isRequired,
+  hand: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired
 };
 

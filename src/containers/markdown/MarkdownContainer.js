@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
-import { getAllMarkdown } from '../../selectors/markdownSelectors';
+import { getMarkdown } from '../../selectors/markdownSelectors';
 import store from '../../store';
 import Editor from '../../components/markdown/Editor';
 import Preview from '../../components/markdown/Preview';
-import styles from '../../components/markdown/Document.css';
+import styles from './MarkdownContainer.css';
 import { updateMarkdown } from '../../actions/markdownActions';
 
 export default class MarkdownContainer extends PureComponent {
@@ -14,7 +14,7 @@ export default class MarkdownContainer extends PureComponent {
 
   updateState = () => {
     const currentReduxState = store.getState();
-    const markdown = getAllMarkdown(currentReduxState);
+    const markdown = getMarkdown(currentReduxState);
     this.setState({ markdown });
   };
   
@@ -37,12 +37,12 @@ export default class MarkdownContainer extends PureComponent {
   render() {
     const { markdown } = this.state;
     return (
-    <>
-      <div className={styles.Document}>
-        <Editor markdown={markdown} handleChange={this.handleChange}/>
-        <Preview markdown={markdown}/>
-      </div>
-    </>
+      <>
+        <div className={styles.Document}>
+          <Editor markdown={markdown} handleChange={this.handleChange}/>
+          <Preview markdown={markdown}/>
+        </div>
+      </>
     );
 
   }

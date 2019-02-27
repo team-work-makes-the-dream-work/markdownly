@@ -1,11 +1,11 @@
-import { markdown } from '../selectors/markdownSelectors';
+import { getMarkdown } from '../selectors/markdownSelectors';
 
-describe.skip('markdown selectors', () => {
+describe('markdown selectors', () => {
   it('selects only markdown', () => {
     const state = {
       markdown: 'Update mark down working'
     };
-    const selectedMarkdown = markdown(state);
+    const selectedMarkdown = getMarkdown(state);
 
     expect(selectedMarkdown).toEqual('Update mark down working');
   });
