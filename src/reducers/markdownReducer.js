@@ -1,14 +1,14 @@
 import { UPDATE_MARKDOWN } from '../actions/markdownActions';
 
 const initialState = {
-  markdownText: '#Markdown text'
+  markdown: '#Markdown text'
 };
 
 export default function reducer(state = initialState, action) {
   switch(action.type) {
     case UPDATE_MARKDOWN:
       return {
-        markdownText: action.payload
+        markdown: action.payload
       };
     default: 
       return state;
