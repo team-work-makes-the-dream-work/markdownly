@@ -5,12 +5,16 @@ import Editor from '../../components/markdown/Editor';
 import Preview from '../../components/markdown/Preview';
 import styles from './MarkdownContainer.css';
 import { updateMarkdown } from '../../actions/markdownActions';
-import SaveButton from '../../components/markdown/SaveButton';
+import PropTypes from 'prop-types';
 
 export default class MarkdownContainer extends PureComponent {
   state = {
     markdown: '',
     unsubscribe: null
+  };
+
+  static propTypes = {
+    handleSave: PropTypes.func.isRequired
   };
 
   updateState = () => {
@@ -35,16 +39,11 @@ export default class MarkdownContainer extends PureComponent {
     store.dispatch(updateMarkdown(target.value));
   };
 
-  onSave = () => {
-    console.log('saved');
-  };
-
   render() {
     const { markdown } = this.state;
     return (
       <>
         <div className={styles.Document}>
-          <SaveButton onSave={this.onSave}/>
           <Editor markdown={markdown} handleChange={this.handleChange}/>
           <Preview markdown={markdown}/>
         </div>
