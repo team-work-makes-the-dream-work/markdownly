@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function AddButton({ onSave }) {
+function AddButton({ handleAdd }) {
   return (
-    <button onClick={onSave}>Add Tab</button>
+    <button onClick={handleAdd}>Add Tab</button>
   );
 }
 
 AddButton.propTypes = {
-  onSave: PropTypes.func.isRequired
+  handleAdd: PropTypes.func.isRequired
 };
 
 export default AddButton;
