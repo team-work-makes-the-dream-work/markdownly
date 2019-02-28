@@ -4,7 +4,13 @@ const initialState = {
   markdown: {
     text: '#Markdown text',
     title: 'Example'
-  }
+  },
+  allMarkdownFiles: [
+    { 
+      text: '#Markdown text1',
+      title: 'ExampleTitle'
+    }
+  ]
 };
 
 export default function reducer(state = initialState, action) {
