@@ -17,6 +17,7 @@ export default function reducer(state = initialState, action) {
   switch(action.type) {
     case UPDATE_MARKDOWN_TEXT:
       return {
+        ...state,
         markdown: { 
           text: action.payload,
           title: state.markdown.title
@@ -24,6 +25,7 @@ export default function reducer(state = initialState, action) {
       };
     case ADD_MARKDOWN_FILE:
       return {
+        ...state,
         allMarkdownFiles: [
           ...state.allMarkdownFiles,
           {
