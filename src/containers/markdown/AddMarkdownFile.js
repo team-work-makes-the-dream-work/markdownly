@@ -25,6 +25,7 @@ export default class AddMarkdown extends PureComponent {
       this.updateState();
     });
     this.setState({ unsubscribe });
+    this.makeTitles(this.state.markdownFiles);
   }
 
   componentWillUnmount() {
@@ -35,15 +36,15 @@ export default class AddMarkdown extends PureComponent {
     store.dispatch(addMarkdownFile());
   };
   
-  makeTitles = markdownArray => {
-    console.log('MARKDWON', this.state.markdownFiles);
-    markdownArray.map(markdown => {
+  makeTitles = () => {
+    return this.state.markdownFiles.map(markdown => {
       return markdown.title;
     });
+
   };
 
   render() {
-    const markdownTitles = this.makeTitles(this.state.markdownFiles);
+    const markdownTitles = this.makeTitles();
     return (
       <>
         <AddButton handleAdd={this.handleAdd}/>

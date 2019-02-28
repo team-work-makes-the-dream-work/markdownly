@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Tabs({ markdownTitles }) {
+  console.log('PROPS', markdownTitles);
   const markdownList = markdownTitles.map((markdown, i) => {
     return <li key={i}>{markdown}</li>;
   });
@@ -15,7 +16,7 @@ function Tabs({ markdownTitles }) {
   );
 }
 Tabs.propTypes = {
-  markdownTitles:PropTypes.string.isRequired
+  markdownTitles:PropTypes.array.isRequired
 };
 
 export default Tabs;
