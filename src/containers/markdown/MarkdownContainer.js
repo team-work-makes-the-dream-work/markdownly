@@ -8,14 +8,18 @@ import { updateMarkdown } from '../../actions/markdownActions';
 
 export default class MarkdownContainer extends PureComponent {
   state = {
-    markdown: '',
+    text: '',
+    title: '',
     unsubscribe: null
   };
 
   updateState = () => {
     const currentReduxState = store.getState();
-    const markdown = getMarkdown(currentReduxState);
-    this.setState({ markdown });
+    const markdownObject = getMarkdown(currentReduxState);
+    this.setState({ 
+      text: markdownObject.text,
+      title: markdownObject.title
+    });
   };
   
   componentDidMount() {
@@ -35,12 +39,12 @@ export default class MarkdownContainer extends PureComponent {
   };
 
   render() {
-    const { markdown } = this.state;
+    const { text } = this.state;
     return (
       <>
         <div className={styles.Document}>
-          <Editor markdown={markdown} handleChange={this.handleChange}/>
-          <Preview markdown={markdown}/>
+          <Editor text={text} handleChange={this.handleChange}/>
+          <Preview text={text}/>
         </div>
       </>
     );

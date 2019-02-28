@@ -1,14 +1,38 @@
-import { UPDATE_MARKDOWN } from '../actions/markdownActions';
+import { UPDATE_MARKDOWN_TEXT, ADD_MARKDOWN_FILE } from '../actions/markdownActions';
 
 const initialState = {
-  markdown: '#Markdown text'
+  markdown: {
+    text: '#Markdown text',
+    title: 'Example'
+  },
+  allMarkdownFiles: [
+    { 
+      text: '#Markdown text1',
+      title: 'ExampleTitle'
+    }
+  ]
 };
 
 export default function reducer(state = initialState, action) {
   switch(action.type) {
-    case UPDATE_MARKDOWN:
+    case UPDATE_MARKDOWN_TEXT:
       return {
-        markdown: action.payload
+        ...state,
+        markdown: { 
+          text: action.payload,
+          title: state.markdown.title
+        }
+      };
+    case ADD_MARKDOWN_FILE:
+      return {
+        ...state,
+        allMarkdownFiles: [
+          ...state.allMarkdownFiles,
+          {
+            text: '',
+            title: ''
+          }
+        ]
       };
     default: 
       return state;
