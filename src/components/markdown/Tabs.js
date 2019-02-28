@@ -9,7 +9,7 @@ function Tabs({ markdownFiles }) {
   return (
     <>
     <ul>
-      <li>{markdownList}</li>
+      {markdownList}
     </ul>
     </>
   );
