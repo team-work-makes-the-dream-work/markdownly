@@ -6,6 +6,7 @@ import Preview from '../../components/markdown/Preview';
 import styles from './MarkdownContainer.css';
 import { updateMarkdown } from '../../actions/markdownActions';
 
+
 export default class MarkdownContainer extends PureComponent {
   state = {
     text: '',
