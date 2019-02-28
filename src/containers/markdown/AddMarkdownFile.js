@@ -1,20 +1,21 @@
 import React, { PureComponent } from 'react';
-import { getMarkdownFiles } from '../../selectors/markdownSelectors';
+import { getMarkdownTitles } from '../../selectors/markdownSelectors';
 import store from '../../store';
 import AddButton from '../../components/markdown/AddButton';
 import { addMarkdownFile } from '../../actions/markdownActions';
+import Tabs from '../../components/markdown/Tabs';
 
 export default class AddMarkdown extends PureComponent {
   state = {
-    markdownFiles: [],
+    markdownTitles: [],
     unsubscribe: null
   };
 
   updateState = () => {
     const currentReduxState = store.getState();
-    const markdownFilesArray = getMarkdownFiles(currentReduxState);
+    const markdownTitlesArray = getMarkdownTitles(currentReduxState);
     this.setState({ 
-      markdownFiles: markdownFilesArray 
+      markdownTitles: markdownTitlesArray 
     });
   };
 
@@ -34,10 +35,13 @@ export default class AddMarkdown extends PureComponent {
     store.dispatch(addMarkdownFile());
   };
   
+
   render() {
+    const { markdownTitles } = this.state;
     return (
       <>
         <AddButton handleAdd={this.handleAdd}/>
+        <Tabs markdownTitles={markdownTitles}/>
       </>
     );
   }

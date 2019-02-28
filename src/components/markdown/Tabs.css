@@ -1,0 +1,11 @@
+.Tabs {
+  li {
+    display: inline;
+    margin: 8px;
+    padding: 3px;
+    border: 2px solid black;
+  }
+  ul {
+    display: inline;
+  }
+}

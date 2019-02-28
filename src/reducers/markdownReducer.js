@@ -30,7 +30,7 @@ export default function reducer(state = initialState, action) {
           ...state.allMarkdownFiles,
           {
             text: '',
-            title: ''
+            title: 'Sample'
           }
         ]
       };
