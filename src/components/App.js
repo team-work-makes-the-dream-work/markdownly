@@ -1,13 +1,16 @@
 import React from 'react';
-import AddMarkdownFile from '../containers/markdown/AddMarkdownFile';
-import MarkdownContainer from '../containers/markdown/MarkdownContainer';
+import Home from './Home';
 
-export default function App() {
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+function App() {
   return (
-    <>
-      <h1>Markdown Editor</h1>
-      <AddMarkdownFile/>
-      <MarkdownContainer/>
-    </>
+    <Router>
+      <Switch>
+        <Route path='/home' component={Home} />
+      </Switch>
+    </Router>
   );
 }
+
+export default App;
