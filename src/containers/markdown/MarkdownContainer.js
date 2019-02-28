@@ -17,8 +17,8 @@ export default class MarkdownContainer extends PureComponent {
     const currentReduxState = store.getState();
     const markdownObject = getMarkdown(currentReduxState);
     this.setState({ 
-      text: markdownObject[0].text,
-      title: markdownObject[0].title
+      text: markdownObject.text,
+      title: markdownObject.title
     });
   };
   
