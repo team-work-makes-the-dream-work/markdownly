@@ -8,9 +8,9 @@ function Tabs({ markdownTitles }) {
 
   return (
     <>
-    <ul>
-      {markdownList}
-    </ul>
+      <ul>
+        {markdownList}
+      </ul>
     </>
   );
 }
