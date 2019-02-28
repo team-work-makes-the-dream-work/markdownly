@@ -34,6 +34,10 @@ export default class AddMarkdown extends PureComponent {
   handleAdd = () => {
     store.dispatch(addMarkdownFile());
   };
+
+  handleClick = () => {
+    console.log('CLICK');
+  };
   
 
   render() {
@@ -41,7 +45,7 @@ export default class AddMarkdown extends PureComponent {
     return (
       <>
         <AddButton handleAdd={this.handleAdd}/>
-        <Tabs markdownTitles={markdownTitles}/>
+        <Tabs handleClick={this.handleClick} markdownTitles={markdownTitles}/>
       </>
     );
   }

@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Tabs.css';
 
-function Tabs({ markdownTitles }) {
+function Tabs({ markdownTitles, handleClick }) {
   const markdownList = markdownTitles.map((markdown, i) => {
-    return <li key={i} className={styles.Tabs}>{markdown}</li>;
+    return <li key={i} onClick={handleClick} className={styles.Tabs}>{markdown}</li>;
   });
 
   return (
@@ -16,7 +16,8 @@ function Tabs({ markdownTitles }) {
   );
 }
 Tabs.propTypes = {
-  markdownTitles:PropTypes.array.isRequired
+  markdownTitles: PropTypes.array.isRequired,
+  handleClick: PropTypes.func.isRequired
 };
 
 export default Tabs;
