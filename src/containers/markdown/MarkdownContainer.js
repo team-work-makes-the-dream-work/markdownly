@@ -5,7 +5,6 @@ import Editor from '../../components/markdown/Editor';
 import Preview from '../../components/markdown/Preview';
 import styles from './MarkdownContainer.css';
 import { updateMarkdown } from '../../actions/markdownActions';
-import PropTypes from 'prop-types';
 
 export default class MarkdownContainer extends PureComponent {
   state = {
@@ -14,16 +13,12 @@ export default class MarkdownContainer extends PureComponent {
     unsubscribe: null
   };
 
-  static propTypes = {
-    handleSave: PropTypes.func.isRequired
-  };
-
   updateState = () => {
     const currentReduxState = store.getState();
     const markdownObject = getMarkdown(currentReduxState);
     this.setState({ 
-      text: markdownObject.text,
-      title: markdownObject.title
+      text: markdownObject[0].text,
+      title: markdownObject[0].title
     });
   };
   
@@ -44,12 +39,12 @@ export default class MarkdownContainer extends PureComponent {
   };
 
   render() {
-    const { markdown } = this.state;
+    const { text } = this.state;
     return (
       <>
         <div className={styles.Document}>
-          <Editor markdown={markdown} handleChange={this.handleChange}/>
-          <Preview markdown={markdown}/>
+          <Editor text={text} handleChange={this.handleChange}/>
+          <Preview text={text}/>
         </div>
       </>
     );
