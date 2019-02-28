@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Tabs({ markdownFiles }) {
-  const markdownList = markdownFiles.map((markdown, i) => {
+function Tabs({ markdownTitles }) {
+  const markdownList = markdownTitles.map((markdown, i) => {
     return <li key={i}>{markdown}</li>;
   });
 
@@ -15,7 +15,7 @@ function Tabs({ markdownFiles }) {
   );
 }
 Tabs.propTypes = {
-  markdownFiles:PropTypes.string.isRequired
+  markdownTitles:PropTypes.string.isRequired
 };
 
 export default Tabs;
