@@ -41,7 +41,7 @@ export default class AddMarkdown extends PureComponent {
     return (
       <>
         <AddButton handleAdd={this.handleAdd}/>
-        {markdownTitles && <Tabs markdownTitles={markdownTitles}/>}
+        <Tabs markdownTitles={markdownTitles}/>
       </>
     );
   }
