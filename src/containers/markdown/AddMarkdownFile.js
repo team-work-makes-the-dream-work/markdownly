@@ -3,6 +3,7 @@ import { getMarkdownFiles } from '../../selectors/markdownSelectors';
 import store from '../../store';
 import AddButton from '../../components/markdown/AddButton';
 import { addMarkdownFile } from '../../actions/markdownActions';
+import Tabs from '../../components/markdown/Tabs';
 
 export default class AddMarkdown extends PureComponent {
   state = {
@@ -34,10 +35,19 @@ export default class AddMarkdown extends PureComponent {
     store.dispatch(addMarkdownFile());
   };
   
+  makeTitles = markdownArray => {
+    console.log('MARKDWON', this.state.markdownFiles);
+    markdownArray.map(markdown => {
+      return markdown.title;
+    });
+  };
+
   render() {
+    const markdownTitles = this.makeTitles(this.state.markdownFiles);
     return (
       <>
         <AddButton handleAdd={this.handleAdd}/>
+        {markdownTitles && <Tabs markdownTitles={markdownTitles}/>}
       </>
     );
   }
