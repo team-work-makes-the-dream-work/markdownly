@@ -9,7 +9,8 @@ import PropTypes from 'prop-types';
 
 export default class MarkdownContainer extends PureComponent {
   state = {
-    markdown: '',
+    text: '',
+    title: '',
     unsubscribe: null
   };
 
@@ -19,8 +20,11 @@ export default class MarkdownContainer extends PureComponent {
 
   updateState = () => {
     const currentReduxState = store.getState();
-    const markdown = getMarkdown(currentReduxState);
-    this.setState({ markdown });
+    const markdownObject = getMarkdown(currentReduxState);
+    this.setState({ 
+      text: markdownObject.text,
+      title: markdownObject.title
+    });
   };
   
   componentDidMount() {

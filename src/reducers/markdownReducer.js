@@ -1,7 +1,10 @@
 import { UPDATE_MARKDOWN } from '../actions/markdownActions';
 
 const initialState = {
-  markdown: '#Markdown text'
+  markdown: [{
+    text: '#Markdown text',
+    title: 'Example'
+  }]
 };
 
 export default function reducer(state = initialState, action) {
