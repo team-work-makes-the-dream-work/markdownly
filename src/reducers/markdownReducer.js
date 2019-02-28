@@ -1,16 +1,17 @@
 import { UPDATE_MARKDOWN_TEXT, ADD_MARKDOWN_FILE } from '../actions/markdownActions';
+import { generate } from 'shortid';
 
 const initialState = {
   markdown: {
     text: '#Markdown text',
     title: 'Example'
   },
-  allMarkdownFiles: [
-    { 
+  allMarkdownFiles: {
+    [generate()]: { 
       text: '#Markdown text1',
       title: 'ExampleTitle'
     }
-  ]
+  }
 };
 
 export default function reducer(state = initialState, action) {
@@ -26,13 +27,13 @@ export default function reducer(state = initialState, action) {
     case ADD_MARKDOWN_FILE:
       return {
         ...state,
-        allMarkdownFiles: [
+        allMarkdownFiles: {
           ...state.allMarkdownFiles,
-          {
+          [generate()]:{
             text: '',
             title: 'Sample'
           }
-        ]
+        }
       };
     default: 
       return state;

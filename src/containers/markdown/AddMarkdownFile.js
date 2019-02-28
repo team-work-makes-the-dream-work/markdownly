@@ -35,7 +35,7 @@ export default class AddMarkdown extends PureComponent {
     store.dispatch(addMarkdownFile());
   };
 
-  handleClick = () => {
+  handleClick = () => {      
     console.log('CLICK');
   };
   
