@@ -2,10 +2,6 @@ import { UPDATE_MARKDOWN_TEXT, ADD_MARKDOWN_FILE } from '../actions/markdownActi
 import { generate } from 'shortid';
 
 const initialState = {
-  markdown: {
-    text: '#Markdown text',
-    title: 'Example'
-  },
   allMarkdownFiles: {
     [generate()]: { 
       text: '#Markdown text1',

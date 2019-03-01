@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Tabs.css';
+import { Link } from 'react-router-dom';
 
-function Tabs({ markdownTitles, handleClick }) {
-  const markdownList = markdownTitles.map((markdown, i) => {
-    return <li key={i} onClick={handleClick} className={styles.Tabs}>{markdown}</li>;
+function Tabs({ markdownFiles, handleClick }) {
+  const markdownList = markdownFiles.map((file, i) => {
+    return <Link key={i} to={`/markdowns/${file.id}`}><li onClick={handleClick} className={styles.Tabs}>{file.title}</li></Link>;
   });
 
   return (
@@ -16,7 +17,7 @@ function Tabs({ markdownTitles, handleClick }) {
   );
 }
 Tabs.propTypes = {
-  markdownTitles: PropTypes.array.isRequired,
+  markdownFiles: PropTypes.array.isRequired,
   handleClick: PropTypes.func.isRequired
 };
 

@@ -8,6 +8,7 @@ function App() {
     <Router>
       <Switch>
         <Route path='/home' component={Home} />
+        <Route path='/markdowns/:id' component={Home} />
       </Switch>
     </Router>
   );
