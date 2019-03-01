@@ -1,7 +1,7 @@
 export const UPDATE_MARKDOWN_TEXT = 'UPDATE_MARKDOWN_TEXT';
-export const updateMarkdown = text => ({
+export const updateMarkdown = (id, text) => ({
   type: UPDATE_MARKDOWN_TEXT,
-  payload: text 
+  payload: { id, text }
 });
 
 export const ADD_MARKDOWN_FILE = 'ADD_MARKDOWN_FILE';

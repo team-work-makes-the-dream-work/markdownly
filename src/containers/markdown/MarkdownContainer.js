@@ -15,7 +15,7 @@ export default class MarkdownContainer extends PureComponent {
   };
 
   static propTypes = {
-    id: PropTypes.string.isRequired
+    id: PropTypes.string
   };
 
   updateState = () => {
@@ -46,7 +46,8 @@ export default class MarkdownContainer extends PureComponent {
   }
 
   handleChange = ({ target }) => {
-    store.dispatch(updateMarkdown(target.value));
+    console.log(this.props.id, '!!!');
+    store.dispatch(updateMarkdown(this.props.id, target.value));
   };
 
   render() {
@@ -59,6 +60,5 @@ export default class MarkdownContainer extends PureComponent {
         </div>
       </>
     );
-
   }
 }
