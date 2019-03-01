@@ -1,13 +1,15 @@
 const HtmlPlugin = require('html-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
 
+// eslint-disable-next-line no-undef
 module.exports = {
   entry: ['@babel/polyfill', './src/index.js'],
   output: {
     filename: 'bundle.[hash].js'
   },
   devServer: {
-    port: 7890
+    port: 7890,
+    historyApiFallback: true
   },
   plugins: [
     new HtmlPlugin({ template: './src/index.html' }),

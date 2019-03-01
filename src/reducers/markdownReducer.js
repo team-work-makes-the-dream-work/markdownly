@@ -1,16 +1,13 @@
 import { UPDATE_MARKDOWN_TEXT, ADD_MARKDOWN_FILE } from '../actions/markdownActions';
+import { generate } from 'shortid';
 
 const initialState = {
-  markdown: {
-    text: '#Markdown text',
-    title: 'Example'
-  },
-  allMarkdownFiles: [
-    { 
-      text: '#Markdown text1',
-      title: 'ExampleTitle'
+  allMarkdownFiles: {
+    [generate()]: { 
+      text: '# Create a new tab to edit markdown files',
+      title: 'Welcome'
     }
-  ]
+  }
 };
 
 export default function reducer(state = initialState, action) {
@@ -18,21 +15,24 @@ export default function reducer(state = initialState, action) {
     case UPDATE_MARKDOWN_TEXT:
       return {
         ...state,
-        markdown: { 
-          text: action.payload,
-          title: state.markdown.title
+        allMarkdownFiles: { 
+          ...state.allMarkdownFiles,
+          [action.payload.id]: {
+            ...state.allMarkdownFiles[action.payload.id],
+            text: action.payload.text
+          }
         }
       };
     case ADD_MARKDOWN_FILE:
       return {
         ...state,
-        allMarkdownFiles: [
+        allMarkdownFiles: {
           ...state.allMarkdownFiles,
-          {
+          [generate()]:{
             text: '',
             title: 'Sample'
           }
-        ]
+        }
       };
     default: 
       return state;
